@@ -41,6 +41,15 @@ export class Board {
         }
       }
     }
+    return
+    const [i, j, b] = c
+    if (this.board[i+1][j] !== '.' || this.board[i+1][j] >= this.height){
+      this.falling = false
+      return
+    }
+
+    this.board[i+1][j] = b
+    this.board[i][j] = '.'
   }
 
   hasFalling() {
