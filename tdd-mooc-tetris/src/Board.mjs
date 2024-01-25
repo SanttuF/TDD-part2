@@ -7,6 +7,7 @@ export class Board {
     this.height = height;
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     this.falling = false
+    this.current = [0, 0]
   }
 
   toString() {
@@ -19,18 +20,18 @@ export class Board {
     if (this.falling) throw new Error('already falling')
 
     this.board[0][Math.floor(this.width/2)] = block
+    this.current = [0, this.width/2]
     this.falling = true
   }
 
   tick() {
-    const newBoard = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     for (let i = this.height-1; i >= 0; i--) {
       for (let j = this.width-1; j >= 0; j--) {
-        
+        console.log(this.falling)
         const current = this.board[i][j]
         if (current !== '.') {
 
-          if (i === this.height-1) {
+          if (i === this.height-1 ) {
             this.falling = false
             return
           }
