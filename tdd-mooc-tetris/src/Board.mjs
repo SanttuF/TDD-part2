@@ -5,9 +5,16 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
   }
 
   toString() {
-    return ('.'.repeat(this.width) + '\n').repeat(this.height)
+    let s = ''
+    this.board.forEach(e => s += e.join('') + '\n')
+    return s
+  }
+
+  drop(block) {
+    this.board[0][Math.floor(this.width/2)] = block
   }
 }
