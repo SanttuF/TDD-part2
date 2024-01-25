@@ -17,4 +17,14 @@ export class Board {
   drop(block) {
     this.board[0][Math.floor(this.width/2)] = block
   }
+
+  tick() {
+    const newBoard = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
+    for (let i = this.height-1; i >= 0; i--) {
+      for (let j = this.width-1; j >= 0; j--) {
+        if (this.board[i][j] === 'X') {
+          this.board[i][j] = '.'; this.board[i+1][j] = 'X'}
+      }
+    }
+  }
 }
