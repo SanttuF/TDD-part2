@@ -25,15 +25,6 @@ export class Board {
   }
 
   tick() {
-    /*
-    for (let i = this.height-1; i >= 0; i--) {
-      for (let j = this.width-1; j >= 0; j--) {
-        const current = this.board[i][j]
-        if (current !== '.') {
-
-
-    return
-    */
     const [i, j, b] = this.c
     if (i+1 >= this.height || this.board[i+1][j] !== '.'){
       this.falling = false
