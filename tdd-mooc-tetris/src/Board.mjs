@@ -27,7 +27,6 @@ export class Board {
   tick() {
     for (let i = this.height-1; i >= 0; i--) {
       for (let j = this.width-1; j >= 0; j--) {
-        console.log(this.falling)
         const current = this.board[i][j]
         if (current !== '.') {
 
@@ -42,7 +41,7 @@ export class Board {
       }
     }
     return
-    const [i, j, b] = c
+    const [i, j, b] = this.c
     if (this.board[i+1][j] !== '.' || this.board[i+1][j] >= this.height){
       this.falling = false
       return
@@ -50,6 +49,7 @@ export class Board {
 
     this.board[i+1][j] = b
     this.board[i][j] = '.'
+    this.c[0] += 1
   }
 
   hasFalling() {
