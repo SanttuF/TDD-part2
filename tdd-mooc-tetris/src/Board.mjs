@@ -28,6 +28,10 @@ export class Board {
       for (let j = this.width-1; j >= 0; j--) {
         const current = this.board[i][j]
         if (current !== '.') {
+          if (i === this.height-1) {
+            this.falling = false
+            return
+          }
           this.board[i+1][j] = current
           this.board[i][j] = '.'
         }
