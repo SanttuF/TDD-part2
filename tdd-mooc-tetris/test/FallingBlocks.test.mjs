@@ -87,7 +87,7 @@ describe("Falling blocks", () => {
       board.tick();
     });
 
-    test.skip("it is still moving on the row above the other block", () => {
+    test("it is still moving on the row above the other block", () => {
       expect(board.toString()).to.equalShape(
         `...
          .Y.
