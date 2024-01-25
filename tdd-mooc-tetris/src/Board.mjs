@@ -22,9 +22,10 @@ export class Board {
     const newBoard = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     for (let i = this.height-1; i >= 0; i--) {
       for (let j = this.width-1; j >= 0; j--) {
-        if (this.board[i][j] === 'X') {
+        const current = this.board[i][j]
+        if (current !== '.') {
+          this.board[i+1][j] = current
           this.board[i][j] = '.'
-          this.board[i+1][j] = 'X'
         }
       }
     }
