@@ -26,12 +26,15 @@ export class Board {
     const newBoard = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     for (let i = this.height-1; i >= 0; i--) {
       for (let j = this.width-1; j >= 0; j--) {
+        
         const current = this.board[i][j]
         if (current !== '.') {
+
           if (i === this.height-1) {
             this.falling = false
             return
           }
+
           this.board[i+1][j] = current
           this.board[i][j] = '.'
         }
