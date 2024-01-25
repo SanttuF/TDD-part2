@@ -7,7 +7,7 @@ export class Board {
     this.height = height;
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     this.falling = false
-    this.current = [0, 0]
+    this.c = []
   }
 
   toString() {
@@ -20,7 +20,7 @@ export class Board {
     if (this.falling) throw new Error('already falling')
 
     this.board[0][Math.floor(this.width/2)] = block
-    this.current = [0, this.width/2]
+    this.c = [0, this.width/2, block]
     this.falling = true
   }
 
