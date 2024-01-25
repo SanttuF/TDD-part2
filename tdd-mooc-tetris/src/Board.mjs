@@ -20,11 +20,12 @@ export class Board {
     if (this.falling) throw new Error('already falling')
 
     this.board[0][Math.floor(this.width/2)] = block
-    this.c = [0, this.width/2, block]
+    this.c = [0, Math.floor(this.width/2), block]
     this.falling = true
   }
 
   tick() {
+    /*
     for (let i = this.height-1; i >= 0; i--) {
       for (let j = this.width-1; j >= 0; j--) {
         const current = this.board[i][j]
@@ -41,8 +42,9 @@ export class Board {
       }
     }
     return
+    */
     const [i, j, b] = this.c
-    if (this.board[i+1][j] !== '.' || this.board[i+1][j] >= this.height){
+    if (i+1 >= this.height || this.board[i+1][j] !== '.'){
       this.falling = false
       return
     }
