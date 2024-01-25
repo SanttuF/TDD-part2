@@ -16,7 +16,8 @@ export class Board {
   }
 
   drop(block) {
-    if (this.falling) return
+    if (this.falling)  throw new Error('already falling')
+    
     this.board[0][Math.floor(this.width/2)] = block
     this.falling = true
   }
