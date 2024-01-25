@@ -6,6 +6,7 @@ export class Board {
     this.width = width;
     this.height = height;
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
+    this.falling = false
   }
 
   toString() {
@@ -15,7 +16,9 @@ export class Board {
   }
 
   drop(block) {
+    if (this.falling) return
     this.board[0][Math.floor(this.width/2)] = block
+    this.falling = true
   }
 
   tick() {
