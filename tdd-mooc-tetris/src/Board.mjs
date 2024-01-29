@@ -19,7 +19,16 @@ export class Board {
   drop(block) {
     if (this.falling) throw new Error('already falling')
 
-    this.board[0][Math.floor(this.width/2)] = block
+    const aBlock = block.split('\n')
+    const boardCenter = Math.floor(this.board.length/2) + 1
+    const blockOffset = boardCenter - Math.floor(block[0].length)
+
+    for (let i = 0; i < aBlock.length; i++) {
+      for (let j = 0; j < aBlock[0].length; j++) {
+        this.board[i][j + blockOffset] = aBlock[i][j]
+      }
+    }
+
     this.c = [0, Math.floor(this.width/2), block]
     this.falling = true
   }

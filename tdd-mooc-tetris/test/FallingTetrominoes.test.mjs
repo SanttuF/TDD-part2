@@ -1,4 +1,3 @@
-/*
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
@@ -17,6 +16,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("start from the top middle", () => {
+    console.log(Tetromino.T_SHAPE)
     board.drop(Tetromino.T_SHAPE);
 
     expect(board.toString()).to.equalShape(
@@ -59,4 +59,3 @@ describe("Falling tetrominoes", () => {
     );
   });
 });
-*/
