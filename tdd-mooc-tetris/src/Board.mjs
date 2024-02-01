@@ -51,6 +51,12 @@ export class Board {
     this.current.forEach((e, index) => {
       const [i, j] = e
 
+      if (i+1 >= this.height || this.board[i+1][j] !== '.'){
+        this.falling = false
+        this.c = []
+        return
+      }
+
       newBoard[i+1][j] = this.board[i][j]
       newBoard[i][j] = '.'
       this.current[index] = [i+1, j]
