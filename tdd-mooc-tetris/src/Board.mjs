@@ -36,6 +36,7 @@ export class Board {
   }
 
   tick() {
+    const newBoard = this.board
     const [i, j, b] = this.c
     if (i+1 >= this.height || this.board[i+1][j] !== '.'){
       this.falling = false
@@ -45,6 +46,8 @@ export class Board {
     this.board[i+1][j] = b
     this.board[i][j] = '.'
     this.c[0] += 1
+
+    
   }
 
   hasFalling() {
