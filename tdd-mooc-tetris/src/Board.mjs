@@ -8,6 +8,7 @@ export class Board {
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     this.falling = false
     this.c = []
+    this.current = []
   }
 
   toString() {
@@ -26,6 +27,7 @@ export class Board {
     for (let i = 0; i < aBlock.length; i++) {
       for (let j = 0; j < aBlock[0].length; j++) {
         this.board[i][j + blockOffset] = aBlock[i][j]
+        this.current.push([i, j + blockOffset])
       }
     }
 
