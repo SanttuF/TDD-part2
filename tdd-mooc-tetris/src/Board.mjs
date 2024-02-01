@@ -46,8 +46,15 @@ export class Board {
     this.board[i+1][j] = b
     this.board[i][j] = '.'
     this.c[0] += 1
+    return
 
-    
+    this.current.forEach((e, index) => {
+      const [i, j] = e
+
+      newBoard[i+1][j] = this.board[i][j]
+      newBoard[i][j] = '.'
+      this.current[index] = [i+1, j]
+    })
   }
 
   hasFalling() {
