@@ -36,7 +36,9 @@ export class Board {
 
   tick() {
     const newBoard = this.board.map(a => a.slice())
+
     this.c.forEach(e => newBoard[e[0]][e[1]] = '.')
+    
     for (let index = 0; index < this.c.length; index++) {
       const [i, j] = this.c[index]
       if (i+1 >= this.height || (this.board[i+1][j] !== '.' && !this.#arrayInC([i+1, j]))){
