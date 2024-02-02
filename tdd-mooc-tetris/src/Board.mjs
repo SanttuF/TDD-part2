@@ -22,7 +22,9 @@ export class Board {
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
+
     this.c = []
+
     for (let i = 0; i < aBlock.length; i++) {
       for (let j = 0; j < aBlock[0].length; j++) {
         this.board[i][j + blockOffset] = aBlock[i][j]
@@ -31,6 +33,7 @@ export class Board {
         }
       }
     }
+    
     this.falling = true
   }
 
@@ -38,7 +41,7 @@ export class Board {
     const newBoard = this.board.map(a => a.slice())
 
     this.c.forEach(e => newBoard[e[0]][e[1]] = '.')
-    
+
     for (let index = 0; index < this.c.length; index++) {
       const [i, j] = this.c[index]
       if (i+1 >= this.height || (this.board[i+1][j] !== '.' && !this.#arrayInC([i+1, j]))){
