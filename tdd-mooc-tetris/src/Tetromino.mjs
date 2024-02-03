@@ -33,3 +33,12 @@ export class Tetromino {
     }
 
 }
+
+class I_Tetromino {
+
+}
+
+class T_tetromino {
+
+}
+
