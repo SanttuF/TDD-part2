@@ -8,7 +8,7 @@ export class Tetromino {
     toString() {
         return this.shape.map(e => e.join('')).join('\n') + '\n'
     }
-    
+
     rotateRight() {
         const newShape = []
         for (let i = 0; i < this.shape.length; i++) {
@@ -19,4 +19,5 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
+    
 }
