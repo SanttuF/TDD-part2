@@ -19,5 +19,14 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
-    
+    rotateLeft() {
+        const newShape = []
+        for (let i = 0; i < this.shape.length; i++) {
+            newShape.push([])
+            for (let j = 0; j < this.shape.length; j++) {
+                newShape[i].push(this.shape[j][this.shape.length - i - 1])
+            }
+        }
+        return new Tetromino(newShape.map(e => e.join('')).join('\n'))
+    }
 }
