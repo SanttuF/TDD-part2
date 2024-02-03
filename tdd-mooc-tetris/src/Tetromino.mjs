@@ -1,5 +1,5 @@
 export class Tetromino {
-    static T_SHAPE = new I_Tetromino('.T.\nTTT\n...')
+    static T_SHAPE = new T_Tetromino('.T.\nTTT\n...')
     static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
     static O_SHAPE = new Tetromino(`.OO\n.OO\n...`)
     
@@ -21,7 +21,7 @@ export class Tetromino {
 
 }
 
-class I_Tetromino extends Tetromino {
+class T_Tetromino extends Tetromino {
     rotateRight() {
         const newShape = []
         for (let i = 0; i < this.shape.length; i++) {
@@ -44,7 +44,7 @@ class I_Tetromino extends Tetromino {
     }
 }
 
-class T_tetromino extends Tetromino {
+class I_tetromino extends Tetromino {
 
 }
 
