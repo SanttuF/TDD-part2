@@ -19,7 +19,7 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
-    
+
     rotateLeft() {
         const newShape = []
         for (let i = 0; i < this.shape.length; i++) {
@@ -30,4 +30,5 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
+    
 }
