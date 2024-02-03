@@ -1,5 +1,6 @@
 export class Tetromino {
     static T_SHAPE = new Tetromino('.T.\nTTT\n...')
+    static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
     
     constructor(shape) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
@@ -30,5 +31,5 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
-    
+
 }
