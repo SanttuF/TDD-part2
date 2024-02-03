@@ -34,14 +34,14 @@ export class Tetromino {
 
 }
 
-class I_Tetromino {
+class I_Tetromino extends Tetromino {
 
 }
 
-class T_tetromino {
+class T_tetromino extends Tetromino {
 
 }
 
-class O_Tetromino {
+class O_Tetromino extends Tetromino {
     
 }
