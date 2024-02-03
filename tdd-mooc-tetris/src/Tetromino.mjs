@@ -42,3 +42,6 @@ class T_tetromino {
 
 }
 
+class O_Tetromino {
+    
+}
