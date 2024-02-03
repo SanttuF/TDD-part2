@@ -36,7 +36,13 @@ class T_Tetromino extends Tetromino {
 }
 
 class I_tetromino extends Tetromino {
+    rotateRight() {
 
+    }
+
+    rotateLeft() {
+        
+    }
 }
 
 class O_Tetromino extends Tetromino {
