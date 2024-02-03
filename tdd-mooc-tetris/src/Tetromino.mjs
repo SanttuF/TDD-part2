@@ -10,15 +10,6 @@ export class Tetromino {
     toString() {
         return this.shape.map(e => e.join('')).join('\n') + '\n'
     }
-
-    rotateRight() {
-        
-    }
-
-    rotateLeft() {
-        
-    }
-
 }
 
 class T_Tetromino extends Tetromino {
