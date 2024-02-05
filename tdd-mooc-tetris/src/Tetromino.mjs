@@ -1,6 +1,6 @@
 export class Tetromino {
     static T_SHAPE = new this('.T.\nTTT\n...', 'T')
-    static I_SHAPE = new this(`.....\n.....\nIIII.\n.....\n.....`)
+    static I_SHAPE = new this(`.....\n.....\nIIII.\n.....\n.....`, 'I')
     static O_SHAPE = new this(`.OO\n.OO\n...`)
     
     constructor(shape, model) {
