@@ -51,13 +51,3 @@ class I_tetromino extends Tetromino {
         
     }
 }
-
-class O_Tetromino extends Tetromino {
-    rotateRight() {
-
-    }
-
-    rotateLeft() {
-        
-    }
-}
