@@ -38,12 +38,4 @@ class I_tetromino extends Tetromino {
     constructor(shape){
         super(shape)
     }
-    rotateRight() {
-        const newShape = []
-        for (let i = 0; j < this.shape -1; i++) {}
-    }
-
-    rotateLeft() {
-        
-    }
 }
