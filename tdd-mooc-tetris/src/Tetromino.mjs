@@ -32,4 +32,12 @@ export class Tetromino {
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
+
+    #checkRow(i) {
+        
+    }
+
+    #checkColumn(i) {
+
+    }
 }
