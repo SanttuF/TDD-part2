@@ -34,8 +34,3 @@ export class Tetromino {
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 }
-class I_tetromino extends Tetromino {
-    constructor(shape){
-        super(shape)
-    }
-}
