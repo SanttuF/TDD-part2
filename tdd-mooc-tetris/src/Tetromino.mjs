@@ -34,7 +34,12 @@ export class Tetromino {
     }
 
     #checkRow(i) {
-        
+        for (let x = 0; x < this.shape[i].length; x++) {
+            if (this.shape[i][x] !== '.') {
+                return true
+            }
+        }
+        return false
     }
 
     #checkColumn(i) {
