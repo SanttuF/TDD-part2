@@ -43,6 +43,11 @@ export class Tetromino {
     }
 
     #checkColumn(i) {
-
+        for (let x = 0; x < this.shape.length; x++) {
+            if (this.shape[x][i] !== '.') {
+                return true
+            }
+        }
+        return false
     }
 }
