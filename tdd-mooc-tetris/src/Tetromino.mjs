@@ -1,11 +1,10 @@
 export class Tetromino {
-    static T_SHAPE = new this('.T.\nTTT\n...', 'T')
-    static I_SHAPE = new this(`.....\n.....\nIIII.\n.....\n.....`, 'I')
+    static T_SHAPE = new this('.T.\nTTT\n...')
+    static I_SHAPE = new this(`.....\n.....\nIIII.\n.....\n.....`)
     static O_SHAPE = new this(`.OO\n.OO\n...`)
     
-    constructor(shape, model) {
+    constructor(shape) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
-        this.model = model
     }
 
     toString() {
