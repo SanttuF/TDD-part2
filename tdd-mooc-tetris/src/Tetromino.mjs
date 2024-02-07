@@ -48,4 +48,10 @@ export class Tetromino {
         }
         return false
     }
+
+    #removeColumn(i, s) {
+        for (let x = 0; x < s[i].length; x++) {
+            s[x].pop(i)
+        }
+    }
 }
