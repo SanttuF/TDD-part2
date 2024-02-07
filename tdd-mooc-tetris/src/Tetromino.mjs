@@ -13,8 +13,8 @@ export class Tetromino {
 
     rotateRight() {
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
-        for (let i = 0; i < this.shape.length; i++) {
-            for (let j = 0; j < this.shape.length; j++) {
+        for (let i = 0; i < newShape.length; i++) {
+            for (let j = 0; j < newShape[0].length; j++) {
                 newShape[i][j] = this.shape[this.shape.length - 1 -j][i]
             }
         }
@@ -23,8 +23,8 @@ export class Tetromino {
 
     rotateLeft() {
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
-        for (let i = 0; i < this.shape.length; i++) {
-            for (let j = 0; j < this.shape.length; j++) {
+        for (let i = 0; i < newShape.length; i++) {
+            for (let j = 0; j < newShape[0].length; j++) {
                 newShape[i][j] = this.shape[j][this.shape.length - i - 1]
             }
         }
