@@ -60,6 +60,10 @@ export class Tetromino {
             for (let x = 0; x < s.length; x++) {
                 s[x.push('.')]
             }
+        } else {
+            for (let x = 0; x < s.length; x++) {
+                s[x.unshift('.')]
+            }
         }
     }
 }
