@@ -50,8 +50,16 @@ export class Tetromino {
     }
 
     #removeColumn(i, s) {
-        for (let x = 0; x < s[i].length; x++) {
+        for (let x = 0; x < s.length; x++) {
             s[x].pop(i)
+        }
+    }
+
+    #addColumn(s, f) {
+        if (f) {
+            for (let x = 0; x < s.length; x++) {
+                s[x.push('.')]
+            }
         }
     }
 }
