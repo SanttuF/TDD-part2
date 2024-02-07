@@ -12,22 +12,20 @@ export class Tetromino {
     }
 
     rotateRight() {
-        const newShape = []
+        const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
         for (let i = 0; i < this.shape.length; i++) {
-            newShape.push([])
             for (let j = 0; j < this.shape.length; j++) {
-                newShape[i].push(this.shape[this.shape.length - 1 -j][i])
+                newShape[i][j] = this.shape[this.shape.length - 1 -j][i]
             }
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
     rotateLeft() {
-        const newShape = []
+        const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
         for (let i = 0; i < this.shape.length; i++) {
-            newShape.push([])
             for (let j = 0; j < this.shape.length; j++) {
-                newShape[i].push(this.shape[j][this.shape.length - i - 1])
+                newShape[i][j] = this.shape[j][this.shape.length - i - 1]
             }
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
