@@ -28,12 +28,18 @@ export class Tetromino {
                 newShape[i][j] = this.shape[j][this.shape.length - i - 1]
             }
         }
+        if (this.shape.length === 5) {
+            if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
+                newShape.shift()
+                newShape.push(new Array(5).fill('.'))
+            }
+        }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
-    #checkRow(i) {
-        for (let x = 0; x < this.shape[i].length; x++) {
-            if (this.shape[i][x] !== '.') {
+    #checkRow(shape, i) {
+        for (let x = 0; x < shape[i].length; x++) {
+            if (shape[i][x] !== '.') {
                 return true
             }
         }
