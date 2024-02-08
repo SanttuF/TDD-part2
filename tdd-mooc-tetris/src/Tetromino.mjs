@@ -18,6 +18,15 @@ export class Tetromino {
                 newShape[i][j] = this.shape[this.shape.length - 1 -j][i]
             }
         }
+        if (this.shape.length === 5) {
+            if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
+                newShape.shift()
+                newShape.push(new Array(5).fill('.'))
+            } else if ((this.#checkColumn(newShape, 0) ^ this.#checkColumn(newShape, 4)) && !this.#checkColumn(newShape, 0)) {
+                this.#removeColumn(newShape, 0)
+                this.#addColumn(newShape, )
+            }
+        }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
@@ -32,6 +41,9 @@ export class Tetromino {
             if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
                 newShape.shift()
                 newShape.push(new Array(5).fill('.'))
+            } else if ((this.#checkColumn(newShape, 0) ^ this.#checkColumn(newShape, 4)) && !this.#checkColumn(newShape, 0)) {
+                this.#removeColumn(newShape)
+                this.#addColumn(newShape)
             }
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
@@ -46,30 +58,24 @@ export class Tetromino {
         return false
     }
 
-    #checkColumn(i) {
-        for (let x = 0; x < this.shape.length; x++) {
-            if (this.shape[x][i] !== '.') {
+    #checkColumn(shape, i) {
+        for (let x = 0; x < shape.length; x++) {
+            if (shape[x][i] !== '.') {
                 return true
             }
         }
         return false
     }
 
-    #removeColumn(i, s) {
+    #removeColumn(s) {
         for (let x = 0; x < s.length; x++) {
-            s[x].pop(i)
+            s[x].shift()
         }
     }
 
-    #addColumn(s, f) {
-        if (f) {
-            for (let x = 0; x < s.length; x++) {
-                s[x.push('.')]
-            }
-        } else {
-            for (let x = 0; x < s.length; x++) {
-                s[x.unshift('.')]
-            }
+    #addColumn(s) {
+        for (let x = 0; x < s.length; x++) {
+            s[x].push('.')
         }
     }
 }
