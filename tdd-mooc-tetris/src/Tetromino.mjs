@@ -34,6 +34,9 @@ export class Tetromino {
     }
 
     rotateLeft() {
+        if (this.shape.length === 3 && ((this.#checkColumn(this.shape, 0)^this.#checkColumn(this.shape,2)) && (this.#checkRow(this.shape,0)^this.#checkRow(this.shape,2)))) {
+            return new Tetromino(this.toString().slice(0, -1))
+        }
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
         for (let i = 0; i < newShape.length; i++) {
             for (let j = 0; j < newShape[0].length; j++) {
