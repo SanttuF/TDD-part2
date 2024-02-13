@@ -12,7 +12,7 @@ export class Tetromino {
     }
 
     rotateRight() {
-        if (this.shape.length === 3 && ((this.#checkColumn(this.shape, 0)^this.#checkColumn(this.shape,2)) && (this.#checkRow(this.shape,0)^this.#checkRow(this.shape,2)))) {
+        if (this.#checkForCube()) {
             return new Tetromino(this.toString().slice(0, -1))
         }
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
@@ -53,6 +53,10 @@ export class Tetromino {
             }
         }
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
+    }
+
+    #checkForCube() {
+        return (this.shape.length === 3 && ((this.#checkColumn(this.shape, 0)^this.#checkColumn(this.shape,2)) && (this.#checkRow(this.shape,0)^this.#checkRow(this.shape,2))))
     }
 
     #checkRow(shape, i) {
