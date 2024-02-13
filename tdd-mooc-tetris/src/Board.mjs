@@ -20,13 +20,13 @@ export class Board {
     if (this.falling) throw new Error('already falling')
 
     if (typeof block !== 'string') {
-      block = block.string()
+      block = block.toString().slice(0, -1)
     }
 
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
-
+    
     this.current = []
 
     for (let i = 0; i < aBlock.length; i++) {
