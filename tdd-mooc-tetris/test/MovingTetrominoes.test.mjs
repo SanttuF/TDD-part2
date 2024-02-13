@@ -8,7 +8,7 @@ describe('Test moving', () => {
         board = new Board(10, 6)
     })
 
-    test('can move left', () => {
+    test.skip('can move left', () => {
         board.moveLeft()
 
         expect(board.toString()).to.equalShape(

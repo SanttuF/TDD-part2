@@ -26,7 +26,7 @@ export class Board {
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
-    
+
     this.current = []
 
     for (let i = 0; i < aBlock.length; i++) {
@@ -48,7 +48,7 @@ export class Board {
 
     for (let index = 0; index < this.current.length; index++) {
       const [i, j] = this.current[index]
-      if (i+1 >= this.height || (this.board[i+1][j] !== '.' && !this.#arrayInC([i+1, j]))){
+      if (this.#checkCollision(i, j)){
         this.falling = false
         return
       }
@@ -64,6 +64,9 @@ export class Board {
   }
   #arrayInC(i) {
     return this.current.some(e => JSON.stringify(e) === JSON.stringify(i))
+  }
+  #checkCollision(i, j) {
+    return (i+1 >= this.height || (this.board[i+1][j] !== '.' && !this.#arrayInC([i+1, j])))
   }
 }
 
