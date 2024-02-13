@@ -48,7 +48,7 @@ export class Board {
 
     for (let index = 0; index < this.current.length; index++) {
       const [i, j] = this.current[index]
-      if (this.#checkCollision(i, j)){
+      if (this.#checkCollision(i+1, j)){
         this.falling = false
         return
       }
@@ -66,7 +66,7 @@ export class Board {
     return this.current.some(e => JSON.stringify(e) === JSON.stringify(i))
   }
   #checkCollision(i, j) {
-    return (i+1 >= this.height || (this.board[i+1][j] !== '.' && !this.#arrayInC([i+1, j])))
+    return (i >= this.height || (this.board[i][j] !== '.' && !this.#arrayInC([i, j])))
   }
 }
 
