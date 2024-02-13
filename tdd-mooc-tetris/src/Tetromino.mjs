@@ -43,6 +43,11 @@ export class Tetromino {
                 newShape[i][j] = this.shape[j][this.shape.length - i - 1]
             }
         }
+        this.#centerI(newShape)
+        return new Tetromino(newShape.map(e => e.join('')).join('\n'))
+    }
+
+    #centerI(newShape) {
         if (this.shape.length === 5) {
             if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
                 newShape.shift()
@@ -52,7 +57,6 @@ export class Tetromino {
                 this.#addColumn(newShape)
             }
         }
-        return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
     #checkForCube() {
