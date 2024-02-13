@@ -19,6 +19,10 @@ export class Board {
   drop(block) {
     if (this.falling) throw new Error('already falling')
 
+    if (typeof block !== 'string') {
+      block = block.string()
+    }
+
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
