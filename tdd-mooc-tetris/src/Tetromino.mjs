@@ -21,15 +21,8 @@ export class Tetromino {
                 newShape[i][j] = this.shape[this.shape.length - 1 -j][i]
             }
         }
-        if (this.shape.length === 5) {
-            if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
-                newShape.shift()
-                newShape.push(new Array(5).fill('.'))
-            } else if ((this.#checkColumn(newShape, 0) ^ this.#checkColumn(newShape, 4)) && !this.#checkColumn(newShape, 0)) {
-                this.#removeColumn(newShape, 0)
-                this.#addColumn(newShape, )
-            }
-        }
+
+        this.#alignI(newShape)
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
@@ -43,6 +36,7 @@ export class Tetromino {
                 newShape[i][j] = this.shape[j][this.shape.length - i - 1]
             }
         }
+
         this.#alignI(newShape)
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
