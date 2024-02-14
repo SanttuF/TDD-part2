@@ -67,7 +67,10 @@ export class Board {
 
   moveLeft() {
     this.#move('left')
-    return
+  }
+  
+  moveRight() {
+    this.#move('right')
   }
 
   #move(dir) {
@@ -80,6 +83,7 @@ export class Board {
       let [newI, newJ] = this.current[index].slice()
       switch (dir) {
         case 'left': newJ -= 1; break
+        case 'right': newJ += 1; break
         default: throw new Error('Invalid direction')
       }
       if (this.#checkCollision(newI, newJ)) return
