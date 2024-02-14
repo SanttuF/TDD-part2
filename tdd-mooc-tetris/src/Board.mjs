@@ -72,15 +72,6 @@ export class Board {
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
 
-    for(let index = 0; index < this.current.length; index++) {
-      const [i, j] = this.current[index]
-      if (this.#checkCollision(i, j-1)) return
-    
-      newCurrent[index] = [i, j-1]
-      newBoard[i][j-1] = this.board[i][j]
-    }
-    this.current = newCurrent
-    this.board = newBoard
   }
 
   #move(dir) {
