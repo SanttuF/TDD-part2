@@ -66,7 +66,8 @@ export class Board {
     return this.current.some(e => JSON.stringify(e) === JSON.stringify(i))
   }
   #checkCollision(i, j) {
-    return (i >= this.height || (this.board[i][j] !== '.' && !this.#arrayInC([i, j])))
+    if (i >= this.height) return true
+    if (this.board[i][j] !== '.' && !this.#arrayInC([i, j])) return true
   }
 }
 
