@@ -73,6 +73,10 @@ export class Board {
     this.#move('right')
   }
 
+  moveDown() {
+    this.#move('down')
+  }
+
   #move(dir) {
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
@@ -84,6 +88,7 @@ export class Board {
       switch (dir) {
         case 'left': newJ -= 1; break
         case 'right': newJ += 1; break
+        case 'down': newI += 1; break
         default: throw new Error('Invalid direction')
       }
       if (this.#checkCollision(newI, newJ)) return
