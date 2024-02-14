@@ -62,6 +62,7 @@ export class Board {
   hasFalling() {
     return this.falling
   }
+  
   moveLeft() {
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
@@ -76,9 +77,11 @@ export class Board {
     this.current = newCurrent
     this.board = newBoard
   }
+
   #arrayInC(i) {
     return this.current.some(e => JSON.stringify(e) === JSON.stringify(i))
   }
+
   #checkCollision(i, j) {
     if (i >= this.height) return true
     if (this.board[i][j] !== '.' && !this.#arrayInC([i, j])) return true
