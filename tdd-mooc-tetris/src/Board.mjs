@@ -66,8 +66,6 @@ export class Board {
   }
 
   moveLeft() {
-    // this.#move('left')
-    // return
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
@@ -90,11 +88,9 @@ export class Board {
 
     for(let index = 0; index < this.current.length; index++) {
       const [i, j] = this.current[index]
-      let [newJ, newI] = this.current[index]
+      let [newJ, newI] = this.current[index].slice()
       switch (dir) {
         case 'left': newJ -= 1; break
-        case 'right': newJ += 1; break
-        case 'down': newI += 1; break
       }
       if (this.#checkCollision(newI, newJ)) return
     
