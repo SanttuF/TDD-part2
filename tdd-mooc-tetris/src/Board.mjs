@@ -43,6 +43,7 @@ export class Board {
 
   tick() {
     const newBoard = this.board.map(a => a.slice())
+    const newCurrent = this.current.map(a => a.slice())
 
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
 
@@ -54,19 +55,21 @@ export class Board {
       }
 
       newBoard[i+1][j] = this.board[i][j]
-      this.current[index] = [i+1, j]
+      newCurrent[index] = [i+1, j]
     }
+    this.current = newCurrent
     this.board = newBoard
   }
 
   hasFalling() {
     return this.falling
   }
-  
+
   moveLeft() {
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
+
     for(let index = 0; index < this.current.length; index++) {
       const [i, j] = this.current[index]
       if (this.#checkCollision(i, j-1)) return
