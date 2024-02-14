@@ -81,6 +81,10 @@ export class Board {
     this.board = newBoard
   }
 
+  move(dir) {
+    
+  }
+
   #arrayInC(i) {
     return this.current.some(e => JSON.stringify(e) === JSON.stringify(i))
   }
