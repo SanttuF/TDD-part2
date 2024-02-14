@@ -85,6 +85,16 @@ export class Board {
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
+
+    for(let index = 0; index < this.current.length; index++) {
+      const [i, j] = this.current[index]
+      if (this.#checkCollision(i, j)) return
+    
+      newCurrent[index] = [i, j]
+      newBoard[i][j] = this.board[i][j]
+    }
+    this.current = newCurrent
+    this.board = newBoard
   }
 
   #arrayInC(i) {
