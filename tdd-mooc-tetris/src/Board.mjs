@@ -68,10 +68,6 @@ export class Board {
   moveLeft() {
     this.#move('left')
     return
-    const newBoard = this.board.map(a => a.slice())
-    this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
-    const newCurrent = this.current.map(a => a.slice())
-
   }
 
   #move(dir) {
