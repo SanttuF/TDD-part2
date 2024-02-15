@@ -108,6 +108,7 @@ describe('Test moving', () => {
              ....T.....
              ...TTT....`
          )
+        expect(board.hasFalling()).to.equal(false)
     })
 
     test('cannot move through block left', () => {
@@ -183,6 +184,7 @@ describe('Test moving', () => {
              ...TTT....
              ....T.....
              ...TTT....`
-         )
+        )
+        expect(board.hasFalling()).to.equal(false)
     })
 }) 
