@@ -91,8 +91,12 @@ export class Board {
         case 'down': newI += 1; break
         default: throw new Error('Invalid direction')
       }
-      if (this.#checkCollision(newI, newJ)) return
-    
+      if (this.#checkCollision(newI, newJ)){
+        if(dir === 'down') {
+          this.falling = false
+        }
+        return
+      }
       newCurrent[index] = [newI, newJ]
       newBoard[newI][newJ] = this.board[i][j]
     }
