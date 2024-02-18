@@ -44,7 +44,6 @@ export class Board {
     }
 
     this.falling = true
-    console.log(this.board)
   }
 
   tick() {
@@ -120,6 +119,8 @@ export class Board {
   }
 
   #eraseBlock(i, j) {
+    const block = this.block.toString().split('\n').map(e => e.trim())
+    const l = block[0].length
     for (let x = 0; x < l; x++) {
       for (let y = 0; y < l; y++)
       {
