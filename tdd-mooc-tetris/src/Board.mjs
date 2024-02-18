@@ -1,3 +1,4 @@
+import { Tetromino } from "./Tetromino.mjs";
 export class Board {
   width;
   height;
@@ -19,22 +20,23 @@ export class Board {
 
   drop(block) {
     if (this.falling) throw new Error('already falling')
-      this.block = block
 
     if (typeof block !== 'string') {
+      this.block = block
       block = block.toString().slice(0, -1)
-    }
+    } else {this.block = new Tetromino(block)}
 
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
-    const pos = Math.floor((this.width - this.block.length) / 2)
+    const pos = Math.floor((this.width - this.block.toString().split('\n')[0].length) / 2)
 
     this.current = []
 
+    this.#drawBlock(0, pos)
     for (let i = 0; i < aBlock.length; i++) {
       for (let j = 0; j < aBlock[0].length; j++) {
-        this.board[i][j + blockOffset] = aBlock[i][j]
+        // this.board[i][j + blockOffset] = aBlock[i][j]
         if (aBlock[i][j] !== '.') {
           this.current.push([i, j + blockOffset])
         }
@@ -42,6 +44,7 @@ export class Board {
     }
 
     this.falling = true
+    console.log(this.board)
   }
 
   tick() {
@@ -126,13 +129,13 @@ export class Board {
   }
 
   #drawBlock(i, j) {
-    const block = this.block.toString().split('\n').map(e => e.strip())
-    const l = block[0].split
+    const block = this.block.toString().split('\n').map(e => e.trim())
+    const l = block[0].length
     for (let x = 0; x < l; x++) {
       for (let y = 0; y < l; y++)
       {
         if (i+x >= 0 || j+y >= 0 || i+x < this.width || j+y < this.width) {
-          this.board[i+x][j+y] = this.block[x][y]
+          this.board[i+x][j+y] = block[x][y]
         }
       }
     }
