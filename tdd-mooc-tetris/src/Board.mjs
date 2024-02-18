@@ -96,6 +96,7 @@ export class Board {
     //   this.eraseBlock(i, j)
     //   this.drawBlock
     // }
+    
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
