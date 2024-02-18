@@ -8,6 +8,7 @@ export class Board {
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     this.falling = false
     this.current = []
+    this.block
   }
 
   toString() {
@@ -18,6 +19,7 @@ export class Board {
 
   drop(block) {
     if (this.falling) throw new Error('already falling')
+      this.block = block
 
     if (typeof block !== 'string') {
       block = block.toString().slice(0, -1)
@@ -112,5 +114,13 @@ export class Board {
     if (i >= this.height) return true
     if (this.board[i][j] !== '.' && !this.#arrayInC([i, j])) return true
   }
+  #drawBlock(i, j) {
+    const block = this.block.toString().split('\n').map(e => e.strip())
+    const l = block[0].split
+    for (let x = 0; x < l; x++) {
+      for (let y = 0; y < l; y++)
+      {
+        this.board[i+x][j+y] = this.block
+      }}}
 }
 
