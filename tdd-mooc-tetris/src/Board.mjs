@@ -93,9 +93,10 @@ export class Board {
     // }
 
     // if (#this.checkCollision(newI, newJ)) {
+    //    if(dir === 'down') {this.falling = false}
+    // }  return
     //   this.eraseBlock(i, j)
-    //   this.drawBlock
-    // }
+    //   this.drawBlock(newI, newJ)
 
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
