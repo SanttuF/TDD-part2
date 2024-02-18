@@ -36,7 +36,6 @@ export class Board {
     this.#drawBlock(0, pos)
     for (let i = 0; i < aBlock.length; i++) {
       for (let j = 0; j < aBlock[0].length; j++) {
-        // this.board[i][j + blockOffset] = aBlock[i][j]
         if (aBlock[i][j] !== '.') {
           this.current.push([i, j + blockOffset])
         }
@@ -135,7 +134,7 @@ export class Board {
     for (let x = 0; x < l; x++) {
       for (let y = 0; y < l; y++)
       {
-        if (i+x >= 0 || j+y >= 0 || i+x < this.width || j+y < this.width) {
+        if ((i+x >= 0 || j+y >= 0 || i+x < this.width || j+y < this.width) && block[x][y] !== '.') {
           this.board[i+x][j+y] = block[x][y]
         }
       }
