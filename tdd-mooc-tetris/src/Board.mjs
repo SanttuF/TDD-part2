@@ -96,7 +96,7 @@ export class Board {
     //   this.eraseBlock(i, j)
     //   this.drawBlock
     // }
-    
+
     const newBoard = this.board.map(a => a.slice())
     this.current.forEach(e => newBoard[e[0]][e[1]] = '.')
     const newCurrent = this.current.map(a => a.slice())
@@ -138,6 +138,7 @@ export class Board {
     for (let x = 0; x < l; x++) {
       for (let y = 0; y < l; y++)
       {
+        if (block[x][y] !== '.')
         this.board[i+x][j+y] = '.'
       }
     }
