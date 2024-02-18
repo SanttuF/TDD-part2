@@ -28,6 +28,7 @@ export class Board {
     const aBlock = block.split('\n')
     const boardCenter = Math.floor(this.board.length/2) + 1
     const blockOffset = boardCenter - Math.floor(block[0].length)
+    const pos = Math.floor((this.width - this.block.length) / 2)
 
     this.current = []
 
@@ -130,7 +131,9 @@ export class Board {
     for (let x = 0; x < l; x++) {
       for (let y = 0; y < l; y++)
       {
-        this.board[i+x][j+y] = this.block
+        if (i+x >= 0 || j+y >= 0 || i+x < this.width || j+y < this.width) {
+          this.board[i+x][j+y] = this.block[x][y]
+        }
       }
     }
   }
