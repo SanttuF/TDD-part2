@@ -121,6 +121,8 @@ export class Board {
       for (let y = 0; y < l; y++)
       {
         this.board[i+x][j+y] = this.block
-      }}}
+      }
+    }
+  }
 }
 
