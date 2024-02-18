@@ -114,6 +114,16 @@ export class Board {
     if (i >= this.height) return true
     if (this.board[i][j] !== '.' && !this.#arrayInC([i, j])) return true
   }
+
+  #eraseBlock(i, j) {
+    for (let x = 0; x < l; x++) {
+      for (let y = 0; y < l; y++)
+      {
+        this.board[i+x][j+y] = '.'
+      }
+    }
+  }
+
   #drawBlock(i, j) {
     const block = this.block.toString().split('\n').map(e => e.strip())
     const l = block[0].split
