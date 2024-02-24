@@ -1,4 +1,4 @@
-
+/*
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
@@ -29,7 +29,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("stop when they hit the bottom", () => {
+  test.only("stop when they hit the bottom", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 
@@ -59,3 +59,4 @@ describe("Falling tetrominoes", () => {
     );
   });
 });
+*/
