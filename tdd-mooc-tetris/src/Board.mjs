@@ -14,4 +14,8 @@ export class Board {
     this.board.forEach(e => s += e.join('') + '\n')
     return s
   }
+
+  drop(block) {
+    this.board[0][1] = block
+  }
 }
