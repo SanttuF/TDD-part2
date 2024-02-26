@@ -16,6 +16,7 @@ export class Board {
   }
 
   drop(block) {
+    const mid = Math.ceil(this.width/2-1)
     this.board[0][1] = block
   }
 }
