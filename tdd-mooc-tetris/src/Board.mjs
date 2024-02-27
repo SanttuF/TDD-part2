@@ -32,7 +32,7 @@ export class Board {
     }
 
     this.block = block
-    this.blockLength = block.toString()[0].length
+    this.blockLength = block.giveShape().length
 
     const start = Math.ceil(this.width/2-1) - Math.floor(this.blockLength/2)
     this.pos = [0, start]
@@ -92,7 +92,6 @@ export class Board {
         if (mode === 'erase') {
           this.board[row+i][col+j] = '.'
         } else if (mode === 'place') {
-          console.log(block)
           this.board[row+i][col+j] = block[i][j]
         }
       }
