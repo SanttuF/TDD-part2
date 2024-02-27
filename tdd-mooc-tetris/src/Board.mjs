@@ -50,6 +50,13 @@ export class Board {
   }
 
   moveDown() {
+    const [row, col] = this.pos
+
+    if (row + 1 >= this.height) {
+      this.falling = false
+      return
+    }
+
     this.eraseBlock()
     this.pos[0] += 1
     this.placeBlock()
