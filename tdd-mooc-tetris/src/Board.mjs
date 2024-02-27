@@ -69,12 +69,15 @@ export class Board {
       case 'down':
         row += 1
         break
+
       case 'left':
         col -= 1
         break
+
       case 'right':
         col += 1
         break
+        
       default:
         throw new Error('not valid direction')
     }
