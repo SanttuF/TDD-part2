@@ -56,9 +56,6 @@ export class Board {
   moveLeft() {
     this.move('left')
     return
-    const [row, col] = this.pos
-    this.eraseBlock()
-
   }
 
   move(dir) {
