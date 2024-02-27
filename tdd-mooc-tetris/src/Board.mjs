@@ -35,13 +35,20 @@ export class Board {
     this.placeBlock()
   }
 
+  tick() {
+    // this.eraseBlock()
+    this.board[0][1] = '.'
+    this.pos[0] += 1
+    this.placeBlock()
+  }
+
   placeBlock() {
-    const [x, y] = this.pos
+    const [row, col] = this.pos
     const block = this.block.toString().slice(0, -1)
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
-        this.board[x+i][y+j] = block[i][j]
+        this.board[row+i][col+j] = block[i][j]
       }
     }
   }
