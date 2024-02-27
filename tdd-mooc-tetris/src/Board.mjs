@@ -20,10 +20,10 @@ export class Board {
 
   drop(block) {
     if (!(block instanceof Tetromino)) {
-      console.log
+      block = new Tetromino(block)
     }
 
     const mid = Math.ceil(this.width/2-1)
-    this.board[0][mid] = block
+    this.board[0][mid] = block.toString().slice(0, -1)
   }
 }
