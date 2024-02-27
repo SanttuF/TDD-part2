@@ -77,6 +77,12 @@ export class Board {
     this.placeBlock()
   }
 
+  move(dir) {
+    const [row, col] = this.pos
+    let newRow, newCol
+    this.eraseBlock()
+  }
+
   checkCollision(row, col) {
     const block = this.block.giveShape()
 
