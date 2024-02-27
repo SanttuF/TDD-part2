@@ -30,6 +30,7 @@ export class Board {
     if (!(block instanceof Tetromino)) {
       block = new Tetromino(block)
     }
+    
     const mid = Math.ceil(this.width/2-1)
 
     this.block = block
