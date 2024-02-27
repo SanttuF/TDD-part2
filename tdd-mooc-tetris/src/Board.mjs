@@ -31,6 +31,11 @@ export class Board {
     this.block = block
     this.pos = [0, mid]
     this.blockLength = block.toString()[0].length
+
     this.board[0][mid] = block.toString().slice(0, -1)
+  }
+
+  placeBlock() {
+    
   }
 }
