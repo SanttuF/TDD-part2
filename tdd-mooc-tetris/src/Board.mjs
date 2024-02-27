@@ -70,7 +70,7 @@ export class Board {
       for (let j = 0; j < this.blockLength; j++) {
         if (block[i][j] === '.') continue
 
-        if (row + i >= this.height || this.board[row+i][col] !== '.') {
+        if (row + i >= this.height || this.board[row+i][col+j] !== '.') {
           return true
         }
       }
