@@ -77,13 +77,13 @@ export class Board {
       case 'right':
         col += 1
         break
-        
+
       default:
         throw new Error('not valid direction')
     }
 
     if(this.checkCollision(row, col)) {
-      this.falling = false
+      if (dir === 'down') this.falling = false
       this.placeBlock()
       return
     }
