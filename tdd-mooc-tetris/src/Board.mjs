@@ -85,13 +85,14 @@ export class Board {
 
   blockWriter(mode) {
     const [row, col] = this.pos
-    const block = this.block.toString().slice(0, -1)
+    const block = this.block.giveShape()
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
         if (mode === 'erase') {
           this.board[row+i][col+j] = '.'
         } else if (mode === 'place') {
+          console.log(block)
           this.board[row+i][col+j] = block[i][j]
         }
       }

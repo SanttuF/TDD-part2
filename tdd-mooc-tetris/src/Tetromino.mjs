@@ -41,6 +41,10 @@ export class Tetromino {
         return new Tetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
+    giveShape() {
+        return this.shape
+    }
+
     #alignI(newShape) {
         if (this.shape.length === 5) {
             if ((this.#checkRow(newShape, 0) ^ this.#checkRow(newShape, 4)) && !this.#checkRow(newShape, 0)) {
