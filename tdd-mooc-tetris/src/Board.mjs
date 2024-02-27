@@ -62,4 +62,8 @@ export class Board {
       }
     }
   }
+
+  blockWriter() {
+    
+  }
 }
