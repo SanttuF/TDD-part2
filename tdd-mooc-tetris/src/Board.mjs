@@ -55,7 +55,10 @@ export class Board {
 
   moveLeft() {
     this.move('left')
-    return
+  }
+
+  moveRight() {
+    this.move('right')
   }
 
   move(dir) {
@@ -68,6 +71,9 @@ export class Board {
         break
       case 'left':
         col -= 1
+        break
+      case 'right':
+        col += 1
         break
       default:
         throw new Error('not valid direction')
