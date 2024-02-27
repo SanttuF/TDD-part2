@@ -90,26 +90,26 @@ describe('Test moving', () => {
          )
     })
 
-    // test('cannot move out down', () => {
-    //     board.drop(Tetromino.T_SHAPE)
-    //     board.moveDown()
-    //     board.moveDown()
-    //     board.moveDown()
-    //     board.moveDown()
-    //     board.moveDown()
-    //     board.moveDown()
-    //     board.moveDown()
+    test('cannot move out down', () => {
+        board.drop(Tetromino.T_SHAPE)
+        board.moveDown()
+        board.moveDown()
+        board.moveDown()
+        board.moveDown()
+        board.moveDown()
+        board.moveDown()
+        board.moveDown()
 
-    //     expect(board.toString()).to.equalShape(
-    //         `..........
-    //          ..........
-    //          ..........
-    //          ..........
-    //          ....T.....
-    //          ...TTT....`
-    //      )
-    //     expect(board.hasFalling()).to.equal(false)
-    // })
+        expect(board.toString()).to.equalShape(
+            `..........
+             ..........
+             ..........
+             ..........
+             ....T.....
+             ...TTT....`
+         )
+        expect(board.hasFalling()).to.equal(false)
+    })
 
     // test('cannot move through block left', () => {
     //     board.drop(Tetromino.T_SHAPE)
