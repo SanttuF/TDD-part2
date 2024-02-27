@@ -68,19 +68,12 @@ export class Board {
   }
 
   rotateLeft() {
-    const [row, col] = this.pos
-    this.eraseBlock()
-    const block = this.block.rotateLeft()
-    if (!this.checkCollision(row, col, block.giveShape())) {
-      this.block = block
-    }
-    this.placeBlock()
+    this.rotate(this.block.rotateLeft())
   }
 
-  rotate() {
+  rotate(block) {
     const [row, col] = this.pos
     this.eraseBlock()
-    const block = this.block.rotateLeft()
     if (!this.checkCollision(row, col, block.giveShape())) {
       this.block = block
     }
