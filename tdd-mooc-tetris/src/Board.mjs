@@ -37,7 +37,6 @@ export class Board {
 
   tick() {
     this.eraseBlock()
-    // this.board[0][1] = '.'
     this.pos[0] += 1
     this.placeBlock()
   }
