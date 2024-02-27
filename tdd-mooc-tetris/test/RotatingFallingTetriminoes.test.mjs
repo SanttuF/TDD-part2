@@ -36,4 +36,26 @@ describe('Falling tetriminoe rotation', () => {
             ..........`
         )
     })
+
+    test('Cant be rotated if no space', () => {
+        board.drop(Tetromino.T_SHAPE)
+        board.tick()
+        board.tick()
+        board.tick()
+        board.tick()
+        board.tick()
+        board.drop(Tetromino.T_SHAPE)
+        board.tick()
+        board.tick()
+        board.rotateLeft()
+
+        expect(board.toString()).to.equalShape(
+           `..........
+            ..........
+            ....T.....
+            ...TTT....
+            ....T.....
+            ...TTT....`
+        )
+    })
 })
