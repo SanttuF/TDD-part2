@@ -62,9 +62,7 @@ export class Board {
   }
 
   rotateRight() {
-    this.eraseBlock()
-    this.block = this.block.rotateRight()
-    this.placeBlock()
+    this.rotate(this.block.rotateRight())
   }
 
   rotateLeft() {
