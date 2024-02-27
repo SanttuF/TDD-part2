@@ -51,12 +51,11 @@ export class Board {
 
   moveDown() {
     this.move('down')
-    return
-    const [row, col] = this.pos
-
   }
 
   moveLeft() {
+    this.move('left')
+    return
     const [row, col] = this.pos
     this.eraseBlock()
 
@@ -77,6 +76,12 @@ export class Board {
     switch (dir) {
       case 'down':
         row += 1
+        break
+      case 'left':
+        col -= 1
+        break
+      default:
+        throw new Error('not valid direction')
     }
 
     if(this.checkCollision(row, col)) {
