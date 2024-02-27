@@ -41,7 +41,7 @@ export class Board {
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
-        this.board[x][y] = block[i][j]
+        this.board[x+i][y+j] = block[i][j]
       }
     }
   }
