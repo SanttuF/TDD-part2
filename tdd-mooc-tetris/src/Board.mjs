@@ -69,7 +69,11 @@ export class Board {
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
-        this.board[row+i][col+j] = '.'
+        if (mode === 'erase') {
+          this.board[row+i][col+j] = '.'
+        } else if (mode === 'place') {
+          this.board[row+i][col+j] = block[i][j]
+        }
       }
     }
   }
