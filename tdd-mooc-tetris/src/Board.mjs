@@ -3,13 +3,15 @@ export class Board {
   width;
   height;
   board;
-  block
+  block;
+  pos;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
     this.block
+    this.pos
   }
 
   toString() {
@@ -26,7 +28,7 @@ export class Board {
 
     this.block = block
     this.pos = [0, mid]
-    
+
     this.board[0][mid] = block.toString().slice(0, -1)
   }
 }
