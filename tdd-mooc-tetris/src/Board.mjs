@@ -50,6 +50,8 @@ export class Board {
   }
 
   moveDown() {
+    this.move('down')
+    return
     const [row, col] = this.pos
     this.eraseBlock()
 
@@ -78,17 +80,21 @@ export class Board {
   }
 
   move(dir) {
-    const [row, col] = this.pos
-    let newRow, newCol
+    let [row, col] = this.pos
     this.eraseBlock()
 
-    if(this.checkCollision(newRow, newCol)) {
+    switch (dir) {
+      case 'down':
+        row += 1
+    }
+
+    if(this.checkCollision(row, col)) {
       this.falling = false
       this.placeBlock()
       return
     }
 
-    this.pos = [newRow, newCol]
+    this.pos = [row, col]
     this.placeBlock()
   }
 
