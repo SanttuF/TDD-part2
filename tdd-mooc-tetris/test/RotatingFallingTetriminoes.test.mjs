@@ -1,8 +1,8 @@
-import { beforeEach, describe } from "vitest";
+import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 import { expect } from "chai";
-/*
+
 describe('Falling tetriminoe rotation', () => {
     let board
     beforeEach(() => {
@@ -23,4 +23,3 @@ describe('Falling tetriminoe rotation', () => {
         )
     })
 })
-*/

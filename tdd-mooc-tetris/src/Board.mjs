@@ -61,6 +61,12 @@ export class Board {
     this.move('right')
   }
 
+  rotateRight() {
+    this.eraseBlock()
+    this.block = this.block.rotateRight()
+    this.placeBlock()
+  }
+
   move(dir) {
     let [row, col] = this.pos
     this.eraseBlock()
