@@ -62,6 +62,10 @@ export class Board {
     this.placeBlock()
   }
 
+  checkCollision() {
+    
+  }
+
   placeBlock() {
     this.blockWriter('place')
   }
