@@ -51,22 +51,25 @@ export class Board {
 
   moveDown() {
     const [row, col] = this.pos
+    this.eraseBlock()
 
     if (this.checkCollision(row + 1, col)) {
       this.falling = false
+      this.placeBlock()
       return
     }
 
-    this.eraseBlock()
     this.pos[0] += 1
     this.placeBlock()
   }
 
   checkCollision(row, col) {
-    const block = this.block.toString().slice(0, -1)
+    const block = this.block.giveShape()
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
+        if (block[i][j] === '.') continue
+
         if (row + i >= this.height || this.board[row+i][col] !== '.') {
           return true
         }
@@ -89,6 +92,8 @@ export class Board {
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
+        if (block[i][j] === '.') continue
+
         if (mode === 'erase') {
           this.board[row+i][col+j] = '.'
         } else if (mode === 'place') {
