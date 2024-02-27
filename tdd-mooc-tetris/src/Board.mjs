@@ -36,8 +36,8 @@ export class Board {
   }
 
   tick() {
-    // this.eraseBlock()
-    this.board[0][1] = '.'
+    this.eraseBlock()
+    // this.board[0][1] = '.'
     this.pos[0] += 1
     this.placeBlock()
   }
@@ -59,7 +59,7 @@ export class Board {
 
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
-        this.board[row+i][col+j] = block[i][j]
+        this.board[row+i][col+j] = '.'
       }
     }
   }
