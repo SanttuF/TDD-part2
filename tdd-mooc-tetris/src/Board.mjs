@@ -81,6 +81,15 @@ export class Board {
     const [row, col] = this.pos
     let newRow, newCol
     this.eraseBlock()
+
+    if(this.checkCollision(newRow, newCol)) {
+      this.falling = false
+      this.placeBlock()
+      return
+    }
+
+    this.pos = [newRow, newCol]
+    this.placeBlock()
   }
 
   checkCollision(row, col) {
