@@ -22,4 +22,18 @@ describe('Falling tetriminoe rotation', () => {
             ..........`
         )
     })
+
+    test('Falling tetriminoes can be rotated counter-clockwise', () => {
+        board.drop(Tetromino.T_SHAPE)
+        board.rotateLeft()
+
+        expect(board.toString()).to.equalShape(
+           `....T.....
+            ...TT.....
+            ....T.....
+            ..........
+            ..........
+            ..........`
+        )
+    })
 })
