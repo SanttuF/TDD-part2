@@ -53,16 +53,7 @@ export class Board {
     this.move('down')
     return
     const [row, col] = this.pos
-    this.eraseBlock()
 
-    if (this.checkCollision(row + 1, col)) {
-      this.falling = false
-      this.placeBlock()
-      return
-    }
-
-    this.pos[0] += 1
-    this.placeBlock()
   }
 
   moveLeft() {
