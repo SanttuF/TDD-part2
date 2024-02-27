@@ -59,14 +59,6 @@ export class Board {
     const [row, col] = this.pos
     this.eraseBlock()
 
-    if (this.checkCollision(row, col - 1)) {
-      this.falling = false
-      this.placeBlock()
-      return
-    }
-
-    this.pos[1] -= 1
-    this.placeBlock()
   }
 
   move(dir) {
