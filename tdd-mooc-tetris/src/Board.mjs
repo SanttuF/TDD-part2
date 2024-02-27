@@ -52,7 +52,7 @@ export class Board {
   moveDown() {
     const [row, col] = this.pos
 
-    if (row + 1 >= this.height) {
+    if (row + 1 >= this.height || this.board[row+1][col] !== '.') {
       this.falling = false
       return
     }
