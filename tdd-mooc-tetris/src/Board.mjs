@@ -52,7 +52,7 @@ export class Board {
   moveDown() {
     const [row, col] = this.pos
 
-    if (row + 1 >= this.height || this.board[row+1][col] !== '.') {
+    if (this.checkCollision(row + 1, col)) {
       this.falling = false
       return
     }
@@ -62,8 +62,7 @@ export class Board {
     this.placeBlock()
   }
 
-  checkCollision() {
-    const [row, col] = this.pos
+  checkCollision(row, col) {
     const block = this.block.toString().slice(0, -1)
 
     for (let i = 0; i < this.blockLength; i++) {
