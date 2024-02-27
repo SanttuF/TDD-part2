@@ -6,6 +6,7 @@ export class Board {
   block;
   blockLength;
   pos;
+  falling;
 
   constructor(width, height) {
     this.width = width;
@@ -14,6 +15,7 @@ export class Board {
     this.block
     this.blockLength
     this.pos
+    this.falling
   }
 
   toString() {
@@ -23,6 +25,8 @@ export class Board {
   }
 
   drop(block) {
+    if(this.falling) throw new Error('already falling')
+
     if (!(block instanceof Tetromino)) {
       block = new Tetromino(block)
     }
@@ -33,6 +37,7 @@ export class Board {
     this.blockLength = block.toString()[0].length
 
     this.placeBlock()
+    this.falling = true
   }
 
   tick() {
