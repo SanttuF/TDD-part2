@@ -31,11 +31,12 @@ export class Board {
       block = new Tetromino(block)
     }
 
-    const mid = Math.ceil(this.width/2-1)
-
     this.block = block
-    this.pos = [0, mid]
     this.blockLength = block.toString()[0].length
+
+    const start = Math.ceil(this.width/2-1) - Math.floor(this.blockLength/2)
+    this.pos = [0, start]
+    
 
     this.placeBlock()
     this.falling = true
