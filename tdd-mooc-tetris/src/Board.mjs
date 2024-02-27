@@ -74,6 +74,12 @@ export class Board {
     this.eraseBlock()
     if (!this.checkCollision(row, col, block.giveShape())) {
       this.block = block
+    } else if (!this.checkCollision(row, col-1, block.giveShape())) {
+      this.block = block
+      this.pos[1] = col-1
+    } else if (!this.checkCollision(row, col+1, block.giveShape())) {
+      this.block = block
+      this.pos[1] = col+1
     }
     this.placeBlock()
   }
