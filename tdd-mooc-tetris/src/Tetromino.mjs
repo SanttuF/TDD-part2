@@ -97,7 +97,7 @@ export class Tetromino {
 
 export class NewTetromino {
 
-    static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`)
+    static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`, 'T')
 
     tTypes = {'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]}
 
@@ -113,11 +113,11 @@ export class NewTetromino {
 
     rotateLeft() {
         const newOrientation = (this.orientation+1)%4
-        return new NewTetromino(this.tTypes['T'][newOrientation], this.type, newOrientation)
+        return new NewTetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
     }
 
     rotateRight() {
         const newOrientation = (this.orientation+3)%4
-        return new NewTetromino(this.tTypes['T'][newOrientation], this.type, newOrientation)
+        return new NewTetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
     }
 }
