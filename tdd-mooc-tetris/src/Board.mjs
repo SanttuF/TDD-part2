@@ -82,6 +82,9 @@ export class Board {
     } else if (!this.checkCollision(row, col+1, block.giveShape())) {
       this.block = block
       this.pos[1] = col+1
+    } else if (!this.checkCollision(row+1, col, block.giveShape())) {
+      this.block = block
+      this.pos[0] = row+1
     }
     this.placeBlock()
   }
@@ -121,7 +124,7 @@ export class Board {
     for (let i = 0; i < this.blockLength; i++) {
       for (let j = 0; j < this.blockLength; j++) {
         if (block[i][j] === '.') continue
-        if (row + i >= this.height || this.board[row+i][col+j] !== '.') {
+        if (row + i >= this.height || row + i < 0 || this.board[row+i][col+j] !== '.') {
           return true
         }
       }

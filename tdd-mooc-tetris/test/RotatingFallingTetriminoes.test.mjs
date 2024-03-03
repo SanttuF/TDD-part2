@@ -1,6 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
-import { Tetromino } from "../src/Tetromino.mjs";
+import { Tetromino, NewTetromino } from "../src/Tetromino.mjs";
 import { expect } from "chai";
 
 describe('Falling tetriminoe rotation', () => {
@@ -10,12 +10,12 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Falling tetriminoes can be rotated clockwise', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.rotateRight()
 
         expect(board.toString()).to.equalShape(
            `....T.....
-            ....TT....
+            ...TT.....
             ....T.....
             ..........
             ..........
