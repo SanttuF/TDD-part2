@@ -37,10 +37,11 @@ describe("The T shape", () => {
   });
 
   test("can be rotated left/counter-clockwise", () => {
-    expect(shape.rotateLeft().toString()).to.equalShape(
-      `.T.
-       TT.
-       .T.`
+    expect(newShape.rotateLeft().toString()).to.equalShape(
+      `.T..
+       .TT.
+       .T..
+       ....`
     );
   });
 

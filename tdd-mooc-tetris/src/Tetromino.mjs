@@ -99,7 +99,7 @@ export class NewTetromino {
 
     static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`)
 
-    tTypes = [`....\nTTT.\n.T..\n....`, `....\n.T..\n.TT.\n.T..`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]
+    tTypes = [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]
 
     constructor(shape, type, orientation=0) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
@@ -109,5 +109,10 @@ export class NewTetromino {
 
     toString() {
         return this.shape.map(e => e.join('')).join('\n') + '\n'
+    }
+
+    rotateLeft() {
+        const newOrientation = (this.orientation+1)%4
+        return new NewTetromino(this.tTypes[newOrientation], 'T', newOrientation)
     }
 }
