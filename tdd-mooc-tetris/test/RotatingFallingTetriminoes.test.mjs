@@ -70,7 +70,7 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Wallbounce', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.rotateRight()
         board.moveLeft()
         board.moveLeft()
