@@ -98,8 +98,12 @@ export class Tetromino {
 export class NewTetromino {
 
     static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`, 'T')
+    static I_SHAPE = new NewTetromino(`....\nIIII\n....\n....`, 'I')
 
-    tTypes = {'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]}
+    tTypes = {
+        'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`],
+        'I': [`....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`, `....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`]
+    }
 
     constructor(shape, type, orientation=0) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
