@@ -1,6 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
-import { Tetromino, NewTetromino } from "../src/Tetromino.mjs";
+import { Tetromino, Tetromino } from "../src/Tetromino.mjs";
 import { expect } from "chai";
 
 describe('Falling tetriminoe rotation', () => {
@@ -10,7 +10,7 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Falling tetriminoes can be rotated clockwise', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.rotateRight()
 
         expect(board.toString()).to.equalShape(
@@ -24,7 +24,7 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Falling tetriminoes can be rotated counter-clockwise', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.rotateLeft()
 
         expect(board.toString()).to.equalShape(
@@ -38,7 +38,7 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Cant be rotated if no space', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.rotateLeft()
         board.rotateLeft()
         board.moveLeft()
@@ -49,7 +49,7 @@ describe('Falling tetriminoe rotation', () => {
         board.tick()
         board.tick()
         board.tick()
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.rotateLeft()
         board.moveLeft()
         board.moveLeft()
@@ -70,7 +70,7 @@ describe('Falling tetriminoe rotation', () => {
     })
 
     test('Wallbounce', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
         board.rotateRight()
         board.moveLeft()

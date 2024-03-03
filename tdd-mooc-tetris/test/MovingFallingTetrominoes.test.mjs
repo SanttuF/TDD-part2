@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
-import { Tetromino, NewTetromino } from "../src/Tetromino.mjs";
+import { Tetromino, Tetromino } from "../src/Tetromino.mjs";
 
 describe('Test moving', () => {
     let board;
@@ -10,7 +10,7 @@ describe('Test moving', () => {
     })
 
     test('can move left', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveLeft()
 
         expect(board.toString()).to.equalShape(
@@ -24,7 +24,7 @@ describe('Test moving', () => {
     })
 
     test('can move right', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveRight()
 
         expect(board.toString()).to.equalShape(
@@ -38,7 +38,7 @@ describe('Test moving', () => {
     })
 
     test('can move down', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
 
         expect(board.toString()).to.equalShape(
@@ -52,7 +52,7 @@ describe('Test moving', () => {
     })
 
     test('cannot move out left', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveLeft()
         board.moveLeft()
         board.moveLeft()
@@ -71,7 +71,7 @@ describe('Test moving', () => {
     })
 
     test('cannot move out right', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveRight()
         board.moveRight()
         board.moveRight()
@@ -91,7 +91,7 @@ describe('Test moving', () => {
     })
 
     test('cannot move out down', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -112,14 +112,14 @@ describe('Test moving', () => {
     })
 
     test('cannot move through block left', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveLeft()
         board.moveLeft()
         board.moveLeft()
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -138,14 +138,14 @@ describe('Test moving', () => {
     })
 
     test('cannot move through block right', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveRight()
         board.moveRight()
         board.moveRight()
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -165,11 +165,11 @@ describe('Test moving', () => {
     })
 
     test('cannot move through block down', () => {
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(NewTetromino.T_SHAPE)
+        board.drop(Tetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()

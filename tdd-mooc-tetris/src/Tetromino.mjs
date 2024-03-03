@@ -1,7 +1,7 @@
-export class Tetromino {
-    static T_SHAPE = new Tetromino('.T.\nTTT\n...')
-    static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
-    static O_SHAPE = new Tetromino(`.OO\n.OO\n...`)
+export class OldTetromino {
+    static T_SHAPE = new OldTetromino('.T.\nTTT\n...')
+    static I_SHAPE = new OldTetromino(`.....\n.....\nIIII.\n.....\n.....`)
+    static O_SHAPE = new OldTetromino(`.OO\n.OO\n...`)
     
     constructor(shape, type='', orientation=1) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
@@ -15,7 +15,7 @@ export class Tetromino {
 
     rotateRight() {
         if (this.#checkForCube()) {
-            return new Tetromino(this.toString().slice(0, -1))
+            return new OldTetromino(this.toString().slice(0, -1))
         }
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
         for (let i = 0; i < newShape.length; i++) {
@@ -25,12 +25,12 @@ export class Tetromino {
         }
 
         this.#alignI(newShape)
-        return new Tetromino(newShape.map(e => e.join('')).join('\n'))
+        return new OldTetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
     rotateLeft() {
         if (this.#checkForCube()) {
-            return new Tetromino(this.toString().slice(0, -1))
+            return new OldTetromino(this.toString().slice(0, -1))
         }
         const newShape = new Array(this.shape.length).fill(null).map(() => new Array(this.shape.length).fill('.'))
         for (let i = 0; i < newShape.length; i++) {
@@ -40,7 +40,7 @@ export class Tetromino {
         }
 
         this.#alignI(newShape)
-        return new Tetromino(newShape.map(e => e.join('')).join('\n'))
+        return new OldTetromino(newShape.map(e => e.join('')).join('\n'))
     }
 
     giveShape() {
@@ -95,11 +95,11 @@ export class Tetromino {
 }
 
 
-export class NewTetromino {
+export class Tetromino {
 
-    static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`, 'T')
-    static I_SHAPE = new NewTetromino(`....\nIIII\n....\n....`, 'I')
-    static O_SHAPE = new NewTetromino(`....\n.OO.\n.OO.\n....`, 'O')
+    static T_SHAPE = new Tetromino(`....\nTTT.\n.T..\n....`, 'T')
+    static I_SHAPE = new Tetromino(`....\nIIII\n....\n....`, 'I')
+    static O_SHAPE = new Tetromino(`....\n.OO.\n.OO.\n....`, 'O')
 
     tTypes = {
         'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`],
@@ -119,12 +119,12 @@ export class NewTetromino {
 
     rotateLeft() {
         const newOrientation = (this.orientation+1)%4
-        return new NewTetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
+        return new Tetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
     }
 
     rotateRight() {
         const newOrientation = (this.orientation+3)%4
-        return new NewTetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
+        return new Tetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
     }
 
     giveShape() {
