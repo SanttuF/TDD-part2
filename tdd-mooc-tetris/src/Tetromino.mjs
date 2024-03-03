@@ -3,6 +3,7 @@ export class Tetromino {
     static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
     static O_SHAPE = new Tetromino(`.OO\n.OO\n...`)
     
+    static tTypes = [`....\nTTT.\n.T..\n....`, `....\n.T..\n.TT.\n.T..`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]
     constructor(shape, type='', orientation=1) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
         this.type = type
