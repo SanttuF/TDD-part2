@@ -96,8 +96,13 @@ export class Tetromino {
 
 
 export class NewTetromino {
+
+    static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`)
+
+    tTypes = [`....\nTTT.\n.T..\n....`, `....\n.T..\n.TT.\n.T..`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]
+
     constructor(shape, type, orientation=0) {
-        this.shape = shape
+        this.shape = shape.split('\n').map(e => e.trim().split(''))
         this.type = type
         this.orientation = orientation
     }
