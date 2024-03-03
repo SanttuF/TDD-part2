@@ -30,6 +30,9 @@ export class Tetromino {
     }
 
     rotateLeft() {
+        if (this.type === 'T') {
+            return new Tetromino(tTypes[this])
+        }
         if (this.#checkForCube()) {
             return new Tetromino(this.toString().slice(0, -1))
         }
