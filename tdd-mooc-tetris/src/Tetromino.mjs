@@ -115,4 +115,9 @@ export class NewTetromino {
         const newOrientation = (this.orientation+1)%4
         return new NewTetromino(this.tTypes[newOrientation], 'T', newOrientation)
     }
+
+    rotateRight() {
+        const newOrientation = (this.orientation+3)%4
+        return new NewTetromino(this.tTypes[newOrientation], 'T', newOrientation)
+    }
 }
