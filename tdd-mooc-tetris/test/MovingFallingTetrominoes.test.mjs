@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
-import { Tetromino } from "../src/Tetromino.mjs";
+import { Tetromino, NewTetromino } from "../src/Tetromino.mjs";
 
 describe('Test moving', () => {
     let board;
@@ -10,12 +10,12 @@ describe('Test moving', () => {
     })
 
     test('can move left', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveLeft()
 
         expect(board.toString()).to.equalShape(
-           `...T......
-            ..TTT.....
+           `..TTT.....
+            ...T......
             ..........
             ..........
             ..........
