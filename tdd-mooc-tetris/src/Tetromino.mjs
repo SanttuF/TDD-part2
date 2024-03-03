@@ -3,7 +3,6 @@ export class Tetromino {
     static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
     static O_SHAPE = new Tetromino(`.OO\n.OO\n...`)
     
-    static tTypes = [`....\nTTT.\n.T..\n....`, `....\n.T..\n.TT.\n.T..`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`]
     constructor(shape, type='', orientation=1) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
         this.type = type
@@ -30,9 +29,6 @@ export class Tetromino {
     }
 
     rotateLeft() {
-        if (this.type === 'T') {
-            return new Tetromino(tTypes[this])
-        }
         if (this.#checkForCube()) {
             return new Tetromino(this.toString().slice(0, -1))
         }
@@ -95,5 +91,14 @@ export class Tetromino {
         for (let x = 0; x < s.length; x++) {
             s[x].push('.')
         }
+    }
+}
+
+
+export class NewTetromino {
+    constructor(shape, type, orientation=0) {
+        this.shape = shape
+        this.type = type
+        this.orientation = orientation
     }
 }
