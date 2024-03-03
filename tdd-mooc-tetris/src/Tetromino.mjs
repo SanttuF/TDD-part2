@@ -3,9 +3,10 @@ export class Tetromino {
     static I_SHAPE = new Tetromino(`.....\n.....\nIIII.\n.....\n.....`)
     static O_SHAPE = new Tetromino(`.OO\n.OO\n...`)
     
-    constructor(shape, type='') {
+    constructor(shape, type='', orientation=1) {
         this.shape = shape.split('\n').map(e => e.trim().split(''))
         this.type = type
+        this.orientation = orientation
     }
 
     toString() {
