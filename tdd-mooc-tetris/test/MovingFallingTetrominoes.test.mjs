@@ -71,7 +71,7 @@ describe('Test moving', () => {
     })
 
     test('cannot move out right', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveRight()
         board.moveRight()
         board.moveRight()
@@ -81,8 +81,8 @@ describe('Test moving', () => {
         board.moveRight()
 
         expect(board.toString()).to.equalShape(
-            `........T.
-             .......TTT
+            `.......TTT
+             ........T.
              ..........
              ..........
              ..........
@@ -91,7 +91,7 @@ describe('Test moving', () => {
     })
 
     test('cannot move out down', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -105,21 +105,21 @@ describe('Test moving', () => {
              ..........
              ..........
              ..........
-             ....T.....
-             ...TTT....`
+             ...TTT....
+             ....T.....`
          )
         expect(board.hasFalling()).to.equal(false)
     })
 
     test('cannot move through block left', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveLeft()
         board.moveLeft()
         board.moveLeft()
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -131,21 +131,21 @@ describe('Test moving', () => {
             `..........
              ..........
              ..........
-             ...T......
-             .TTTT.....
-             TTT.......`
+             ..TTT.....
+             TTTT......
+             .T........`
          )
     })
 
     test('cannot move through block right', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveRight()
         board.moveRight()
         board.moveRight()
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -158,18 +158,18 @@ describe('Test moving', () => {
             `..........
              ..........
              ..........
-             .....T....
-             ....TTTT..
-             ......TTT.`
+             ....TTT...
+             .....TTTT.
+             .......T..`
          )
     })
 
     test('cannot move through block down', () => {
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         while (board.hasFalling()) {
             board.moveDown()
         }
-        board.drop(Tetromino.T_SHAPE)
+        board.drop(NewTetromino.T_SHAPE)
         board.moveDown()
         board.moveDown()
         board.moveDown()
@@ -180,10 +180,10 @@ describe('Test moving', () => {
         expect(board.toString()).to.equalShape(
             `..........
              ..........
-             ....T.....
              ...TTT....
              ....T.....
-             ...TTT....`
+             ...TTT....
+             ....T.....`
         )
         expect(board.hasFalling()).to.equal(false)
     })
