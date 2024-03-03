@@ -1,4 +1,4 @@
-import { Tetromino } from "./Tetromino.mjs";
+import { NewTetromino, Tetromino } from "./Tetromino.mjs";
 export class Board {
   width;
   height;
@@ -27,15 +27,17 @@ export class Board {
   drop(block) {
     if(this.falling) throw new Error('already falling')
 
-    if (!(block instanceof Tetromino)) {
+    if (!(block instanceof Tetromino || block instanceof NewTetromino)) {
       block = new Tetromino(block)
     }
 
     this.block = block
     this.blockLength = block.giveShape().length
 
-    const start = Math.ceil(this.width/2-1) - Math.floor(this.blockLength/2)
-    this.pos = [0, start]
+    let startY = Math.ceil(this.width/2-1) - Math.floor(this.blockLength/2)
+    let startX = 0
+    if(block instanceof NewTetromino) {startY += 1; startX -= 1}
+    this.pos = [startX, startY]
     
     this.placeBlock()
     this.falling = true
