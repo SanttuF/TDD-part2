@@ -99,10 +99,12 @@ export class NewTetromino {
 
     static T_SHAPE = new NewTetromino(`....\nTTT.\n.T..\n....`, 'T')
     static I_SHAPE = new NewTetromino(`....\nIIII\n....\n....`, 'I')
+    static O_SHAPE = new NewTetromino(`....\n.OO.\n.OO.\n....`, 'O')
 
     tTypes = {
         'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`],
-        'I': [`....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`, `....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`]
+        'I': [`....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`, `....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`],
+        'O': [`....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`]
     }
 
     constructor(shape, type, orientation=0) {
