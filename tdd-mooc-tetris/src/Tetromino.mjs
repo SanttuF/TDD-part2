@@ -106,4 +106,8 @@ export class NewTetromino {
         this.type = type
         this.orientation = orientation
     }
+
+    toString() {
+        return this.shape.map(e => e.join('')).join('\n') + '\n'
+    }
 }
