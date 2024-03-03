@@ -82,7 +82,7 @@ export class Board {
     } else if (!this.checkCollision(row, col+1, block.giveShape())) {
       this.block = block
       this.pos[1] = col+1
-    } else if (!this.checkCollision(row+1, col, block.giveShape())) {
+    } else if (row < 0) {
       this.block = block
       this.pos[0] = row+1
     }
