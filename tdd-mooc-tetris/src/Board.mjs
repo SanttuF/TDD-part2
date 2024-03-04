@@ -164,7 +164,8 @@ export class Board {
     for(let i = this.height - 1; i >= 0; i--) {
       if (!(this.board[i].includes('.'))) {
         for (let j = 0; j < this.width; j++) {
-          this.board[i][j] = '.'}
+          this.board[i][j] = '.'
+        }
       }
     }
   }
