@@ -177,6 +177,12 @@ export class Board {
       for (let j = 0; j < this.width; j++) {
         let x = i
         while(x+1 < this.height && this.board[x+1][j] === '.') {
-          x += 1;};this.board[x][j] = this.board[i][j];this.board[i][j] = '.'}}this.checkLines()
+          x += 1
+        }
+        this.board[x][j] = this.board[i][j]
+        this.board[i][j] = '.'
+      }
+    }
+    this.checkLines()
   }
 }
