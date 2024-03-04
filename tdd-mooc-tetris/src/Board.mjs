@@ -112,10 +112,11 @@ export class Board {
     }
 
     if(this.checkCollision(row, col)) {
+      this.placeBlock()
       if (dir === 'down') {
         this.falling = false
+        this.checkLines()
       }
-      this.placeBlock()
       return
     }
 
@@ -156,6 +157,14 @@ export class Board {
         } else if (mode === 'place') {
           this.board[row+i][col+j] = block[i][j]
         }
+      }
+    }
+  }
+  checkLines() {
+    for(let i = this.height - 1; i >= 0; i--) {
+      if (!(this.board[i].includes('.'))) {
+        for (let j = 0; j < this.width; j++) {
+          this.board[i][j] = '.'}
       }
     }
   }
