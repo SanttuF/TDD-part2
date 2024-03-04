@@ -90,6 +90,7 @@ export class Board {
   }
 
   move(dir) {
+    if (!this.falling) return
     let [row, col] = this.pos
     this.eraseBlock()
 
@@ -111,7 +112,9 @@ export class Board {
     }
 
     if(this.checkCollision(row, col)) {
-      if (dir === 'down') this.falling = false
+      if (dir === 'down') {
+        this.falling = false
+      }
       this.placeBlock()
       return
     }
