@@ -161,12 +161,22 @@ export class Board {
     }
   }
   checkLines() {
+    let flag = false
     for(let i = this.height - 1; i >= 0; i--) {
       if (!(this.board[i].includes('.'))) {
+        flag = true
         for (let j = 0; j < this.width; j++) {
           this.board[i][j] = '.'
         }
       }
     }
+    if (flag) this.dropLines()
+  }
+  dropLines() {
+    for(let i = this.height - 1; i >= 0; i--) {
+      for (let j = 0; j < this.width; j++) {
+        let x = i
+        while(x+1 < this.height && this.board[x+1][j] === '.') {
+          x += 1;};this.board[x][j] = this.board[i][j];this.board[i][j] = '.'}}this.checkLines()
   }
 }
