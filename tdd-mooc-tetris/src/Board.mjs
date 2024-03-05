@@ -8,7 +8,7 @@ export class Board {
   pos;
   falling;
 
-  constructor(width, height) {
+  constructor(width, height, scoring=undefined) {
     this.width = width;
     this.height = height;
     this.board = new Array(this.height).fill(null).map(() => new Array(this.width).fill('.'))
@@ -16,6 +16,7 @@ export class Board {
     this.blockLength
     this.pos
     this.falling
+    this.scoring = scoring
   }
 
   toString() {
