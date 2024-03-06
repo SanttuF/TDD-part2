@@ -163,15 +163,20 @@ export class Board {
   }
   checkLines() {
     let flag = false
+    let rowsRemoved = 0
     for(let i = this.height - 1; i >= 0; i--) {
       if (!(this.board[i].includes('.'))) {
         flag = true
+        rowsRemoved += 1
         for (let j = 0; j < this.width; j++) {
           this.board[i][j] = '.'
         }
       }
     }
-    if (flag) this.dropLines()
+    if (flag) {
+      if(this.scoring) this.scoring.removedRows(rowsRemoved)
+      this.dropLines()
+    }
   }
   dropLines() {
     for(let i = this.height - 1; i >= 0; i--) {

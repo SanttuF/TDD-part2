@@ -1,6 +1,6 @@
 import { beforeEach, describe, test } from "vitest";
 import { Board } from "../src/Board.mjs";
-import { Tetromino, Tetromino } from "../src/Tetromino.mjs";
+import { Tetromino } from "../src/Tetromino.mjs";
 import { expect } from "chai";
 
 describe('Falling tetriminoe rotation', () => {
