@@ -105,7 +105,7 @@ export class Tetromino {
     static S_SHAPE = new Tetromino(`....\n.SS.\nSS..\n....`, 'S')
     static Z_SHAPE = new Tetromino(`....\nZZ..\n.ZZ.\n....`, 'Z')
 
-    tTypes = {
+    rotations = {
         'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`],
         'I': [`....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`, `....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`],
         'O': [`....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`],
@@ -127,12 +127,12 @@ export class Tetromino {
 
     rotateLeft() {
         const newOrientation = (this.orientation+1)%4
-        return new Tetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
+        return new Tetromino(this.rotations[this.type][newOrientation], this.type, newOrientation)
     }
 
     rotateRight() {
         const newOrientation = (this.orientation+3)%4
-        return new Tetromino(this.tTypes[this.type][newOrientation], this.type, newOrientation)
+        return new Tetromino(this.rotations[this.type][newOrientation], this.type, newOrientation)
     }
 
     giveShape() {
