@@ -1,5 +1,4 @@
 import { beforeEach, describe, test } from "vitest";
-import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 import { ShuffleBag } from "../src/ShuffleBag.mjs";
 import { expect } from "chai";
