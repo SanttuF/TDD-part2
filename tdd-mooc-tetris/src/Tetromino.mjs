@@ -100,11 +100,19 @@ export class Tetromino {
     static T_SHAPE = new Tetromino(`....\nTTT.\n.T..\n....`, 'T')
     static I_SHAPE = new Tetromino(`....\nIIII\n....\n....`, 'I')
     static O_SHAPE = new Tetromino(`....\n.OO.\n.OO.\n....`, 'O')
+    static L_SHAPE = new Tetromino(`....\nLLL.\nL...\n....`, 'L')
+    static J_SHAPE = new Tetromino(`....\nJJJ.\n..J.\n....`, 'J')
+    static S_SHAPE = new Tetromino(`....\n.SS.\nSS..\n....`, 'S')
+    static Z_SHAPE = new Tetromino(`....\nZZ..\n.ZZ.\n....`, 'Z')
 
     tTypes = {
         'T': [`....\nTTT.\n.T..\n....`, `.T..\n.TT.\n.T..\n....`, `....\n.T..\nTTT.\n....`, `.T..\nTT..\n.T..\n....`],
         'I': [`....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`, `....\nIIII\n....\n....`, `..I.\n..I.\n..I.\n..I.`],
-        'O': [`....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`]
+        'O': [`....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`, `....\n.OO.\n.OO.\n....`],
+        'L': [`....\nLLL.\nL...\n....`, `.L..\n.L..\n.LL.\n....`, `....\n..L.\nLLL.\n....`, `LL..\n.L..\n.L..\n....`],
+        'J': [`....\nJJJ.\n..J.\n....`, `.JJ.\n.J..\n.J..\n....`, `....\nJ...\nJJJ.\n....`, `.J..\n.J..\nJJ..\n....`],
+        'S': [`....\n.SS.\nSS..\n....`, `S...\nSS..\n.S..\n....`, `....\n.SS.\nSS..\n....`, `S...\nSS..\n.S..\n....`],
+        'Z': [`....\nZZ..\n.ZZ.\n....`, `..Z.\n.ZZ.\n.Z..\n....`, `....\nZZ..\n.ZZ.\n....`, `..Z.\n.ZZ.\n.Z..\n....`]
     }
 
     constructor(shape, type, orientation=0) {
